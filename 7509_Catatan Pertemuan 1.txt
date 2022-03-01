@@ -1,0 +1,22 @@
+1 kelompok : (3 org)
+buku 6-7 bab
+1 org minimal buat 1 master, 1 transaksi, 1 laporan
+Unified Proses (activity diagram, usecase diagram, class diagram /er-diagram), sequence diagram (optional)
+Konsultasi : - kirim file berupa pdf (format buku)
+
+#target per minggu = proposal 
+isi: 
+- NRP, Nama kelompok.
+- ceritakan sedikit ttg proyek apa yg mau di buat 1/2 halaman
+- fitur per orang apa saja ( master, transaksi, laporan)
+
+buku 
+----------
+target tiap 2 minggu 
+
+target UTS buat buku sampai ER-diagram atau class diagram (bab 3)
+
+waktu buat buku = buaten 1 bab
+1 kel : si A B C
+
+bab paling akhir : catatan (1 halaman=  isinya per org itu buat apa saja. (si A buat 1 master, 1 transaksi, 1 laporan, buat bab 1 dan bab 2)
