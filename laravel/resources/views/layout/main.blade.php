@@ -19,7 +19,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <button type="button" class="btn btn-primary">Login</button>
+                <a href="{{'login'}}"><button type="button" class="btn btn-primary">Login</button></a>
             </ul>
 
             <form class="d-flex">

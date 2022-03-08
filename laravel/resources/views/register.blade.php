@@ -31,25 +31,34 @@
                 <h1 class="h3 mb-3 fw-normal">Please Register</h1>
 
                 <div class="form-floating">
-                <input type="email" class="form-control" name="pemakai_email" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating">
-                <input type="password" class="form-control"  name="pemakai_password" placeholder="Password">
-                <label for="floatingPassword">Password</label>
+                    <input type="email" class="form-control" name="customer_username" placeholder="johndoe">
+                    <label for="floatingInput">Username</label>
                 </div>
 
-                <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
-                <br>
-                <br>
-                <button class="w-100 btn btn-lg btn-success" type="submit">Login</button>
-                <br>
-                <br>
-                <button class="w-100 btn btn-lg btn-warning" type="submit">Register</button>
+                <div class="form-floating">
+                    <input type="password" class="form-control"  name="customer_password" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="password" class="form-control"  name="customer_name" placeholder="Name">
+                    <label for="floatingPassword">Name</label>
+                    </div>
+                </div>
+
+                <div class="form-floating">
+                    <input type="password" class="form-control"  name="customer_email" placeholder="Email">
+                    <label for="floatingPassword">Email@example</label>
+                    </div>
+                </div>
+
+                <div class="form-floating">
+                    <input type="password" class="form-control"  name="customer_alamat" placeholder="Alamat">
+                    <label for="floatingPassword">address</label>
+                    </div>
+                </div>
             </form>
+            <button class="w-100 btn btn-lg btn-success" type="submit">Register</button>
         </main>
 
 @if (Session::has('pesan'))

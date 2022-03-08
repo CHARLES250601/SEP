@@ -48,7 +48,7 @@
                 <button class="w-100 btn btn-lg btn-success" type="submit">Login</button>
                 <br>
                 <br>
-                <button class="w-100 btn btn-lg btn-warning" type="submit">Register</button>
+                <a href="{{'register'}}"><button type="button" class="w-100 btn btn-lg btn-warning">Register</button></a>
             </form>
         </main>
 
