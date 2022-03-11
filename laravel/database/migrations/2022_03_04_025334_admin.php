@@ -17,7 +17,6 @@ class Admin extends Migration
             $table->id('admin_id');
             $table->string('admin_username')->unique();
             $table->string('admin_password');
-            $table->string('admin_name');
             $table->string('admin_email');
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

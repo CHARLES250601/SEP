@@ -16,9 +16,7 @@ class Customer extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id('customer_id');
             $table->string('customer_username')->unique();
-            $table->string('email')->unique();
             $table->string('customer_password');
-            $table->string('customer_name');
             $table->string('customer_email');
             $table->string('customer_alamat');
             $table->timestamp('email_verified_at')->nullable();
