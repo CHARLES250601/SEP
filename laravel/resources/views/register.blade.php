@@ -31,7 +31,7 @@
                 <h1 class="h3 mb-3 fw-normal">Please Register</h1>
 
                 <div class="form-floating">
-                    <input type="text" class="form-control" name="customer_username" placeholder="johndoe" required>
+                    <input type="text" class="form-control" name="customer_username" placeholder="johndoe" required >
                     <label for="floatingInput">Username</label>
                 </div>
 
