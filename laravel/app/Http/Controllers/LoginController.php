@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -12,4 +13,32 @@ class LoginController extends Controller
     }
 
 
+    public function dologin (Request $request)
+    {
+        $credential = [
+            "email" => $request->email,
+            "password" => $request->password
+        ];
+        if(Auth::attempt($credential))
+        {
+            if(Auth::user()->type == "customer")
+            {
+                return redirect()->route('index.customer');
+            }
+            else
+            {
+                return redirect()->route('index.admin');
+            }
+        }
+        else
+        {
+            return redirect('/login')->with(['pesan'=>'Gagal Login Bro...']);
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
+    }
 }

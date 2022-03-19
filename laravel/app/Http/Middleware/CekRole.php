@@ -15,8 +15,19 @@ class CekRole
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next)
+    public function handle(Request $request, Closure $next,$bolehmasuk)
     {
-        return $next($request);
+
+        if(Auth::user()->type == $bolehmasuk)
+        {
+            return $next($request);
+        }
+        else
+        {
+            //return redirect()->back(); //mental
+            abort (403);
+        }
+
     }
+
 }

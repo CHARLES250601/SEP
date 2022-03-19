@@ -1,8 +1,6 @@
 <?php
-
 namespace App\Http\Controllers;
-
-use App\Models\Customer;
+use App\Models\User;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -16,13 +14,14 @@ class RegisterControler extends Controller
 
     public function store(Request $request)
     {
-    
+
         $rules = [
 
-            'customer_username' => ['required','min:5','max:255','unique:customers'],
-            'customer_password' => 'required|min:5|max:8',
-            'customer_email'    => 'required|email:dns|unique:customers',
-            'customer_alamat'   => 'required|max:255'  
+            'username' => ['required','min:5','max:255','unique:users'],
+            'name'     => 'required|min:5|max:225',
+            'password' => 'required|min:5|max:8',
+            'email'    => 'required|email:dns|unique:users',
+            'alamat'   => 'required|max:255'
 
         ];
 
@@ -32,17 +31,19 @@ class RegisterControler extends Controller
             return redirect('/register')->withErrors($validate);
 
         }
-        
-       $savedata = new Customer();
-       $savedata->customer_username    =  $request->customer_username;
-       $savedata->customer_password    =  Hash::make($request->password);
-       $savedata->customer_email       = $request->customer_email;
-       $savedata->customer_alamat      = $request->customer_alamat;
+        //dd(request()->all());
+
+       $savedata = new User();
+       $savedata->username    =  $request->username;
+       $savedata->name        =  $request->name;
+       $savedata->password    =  Hash::make($request->password);
+       $savedata->email       =  $request->email;
+       $savedata->alamat      =  $request->alamat;
        $savedata->save();
 
         return redirect('/login')->with('succes','berhasil menambahkan user');
-        
-    
+
+
     }
 
 }

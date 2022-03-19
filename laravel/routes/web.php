@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\AdminControler;
+use App\Http\Controllers\CustomerControler;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterControler;
+use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +23,19 @@ Route::get('/', function () {
 });
 
 Route::get('/login',[LoginController::class,'login']);
+Route::post('/dologin',[LoginController::class,'dologin'])->name('dologin');
+
 Route::get('/register',[RegisterControler::class,'register']);
 Route::post('/doregister',[RegisterControler::class,'store']);
+
+
+
+Route::middleware(['web', 'CekRole:admin'])->group(function (){
+    Route::get('/IndexAdmin',[AdminControler::class,'Home'])->name('index.admin');
+});
+
+Route::middleware(['web', 'CekRole:customer'])->group(function (){
+    Route::get('/IndexCustomer',[CustomerControler::class,'Home'])->name('index.customer');
+});
+
+

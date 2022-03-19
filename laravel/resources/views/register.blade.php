@@ -24,37 +24,42 @@
     </div>
     @endif
 
-        <main class="form-signin">     
+        <main class="form-signin">
             <form action="/doregister" method="POST">
                 @csrf
                 <img class="mb-4" src="login.jpg" alt="" width="100" height="100">
                 <h1 class="h3 mb-3 fw-normal">Please Register</h1>
 
                 <div class="form-floating">
-                    <input type="text" class="form-control" name="customer_username" placeholder="johndoe" required >
+                    <input type="text" class="form-control" name="username" placeholder="johndoe" required >
                     <label for="floatingInput">Username</label>
                 </div>
 
                 <div class="form-floating">
-                    <input type="password" class="form-control"  name="customer_password" placeholder="Password" required>
+                    <input type="text" class="form-control" name="name" placeholder="johndoe" required >
+                    <label for="floatingInput">Name</label>
+                </div>
+
+                <div class="form-floating">
+                    <input type="password" class="form-control"  name="password" placeholder="Password" required>
                     <label for="floatingPassword">Password</label>
                 </div>
-                
+
                 <div class="form-floating">
-                    <input type="email" class="form-control"  name="customer_email" placeholder="Email" required>
+                    <input type="email" class="form-control"  name="email" placeholder="Email" required>
                     <label for="floatingPassword">Email@example</label>
                     </div>
                 </div>
 
                 <div class="form-floating">
-                    <input type="text" class="form-control"  name="customer_alamat" placeholder="Alamat" required>
+                    <input type="text" class="form-control"  name="alamat" placeholder="Alamat" required>
                     <label for="floatingPassword">address</label>
                     </div>
                 </div>
                 <br>
                 <button class="w-100 btn btn-lg btn-success" type="submit">Register</button>
             </form>
-           
+
         </main>
 
 @if (Session::has('pesan'))

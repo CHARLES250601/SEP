@@ -26,16 +26,17 @@
 
         <main class="form-signin">
             @csrf
-            <form action="" method="POST">
+            <form action="{{route('dologin')}}" method="POST">
+                @csrf
                 <img class="mb-4" src="login.jpg" alt="" width="100" height="100">
                 <h1 class="h3 mb-3 fw-normal">Please Login</h1>
 
                 <div class="form-floating">
-                <input type="email" class="form-control" name="pemakai_email" placeholder="name@example.com">
+                <input type="email" class="form-control" name="email" placeholder="name@example.com">
                 <label for="floatingInput">Email address</label>
                 </div>
                 <div class="form-floating">
-                <input type="password" class="form-control"  name="pemakai_password" placeholder="Password">
+                <input type="password" class="form-control"  name="password" placeholder="Password">
                 <label for="floatingPassword">Password</label>
                 </div>
 
