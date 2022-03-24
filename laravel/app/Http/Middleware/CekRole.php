@@ -18,7 +18,7 @@ class CekRole
     public function handle(Request $request, Closure $next,$bolehmasuk)
     {
 
-        if(Auth::user()->type == $bolehmasuk)
+        if(Auth::user()->role == $bolehmasuk)
         {
             return $next($request);
         }
