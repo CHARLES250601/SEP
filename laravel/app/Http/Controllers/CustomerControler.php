@@ -8,6 +8,6 @@ class CustomerControler extends Controller
 {
     public function Home()
     {
-        return view('customer');
+        return view('layout/main');
     }
 }

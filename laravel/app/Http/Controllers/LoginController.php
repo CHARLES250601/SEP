@@ -21,13 +21,15 @@ class LoginController extends Controller
         ];
         if(Auth::attempt($credential))
         {
-            if(Auth::user()->type == "customer")
+            if(Auth::user()->role == "customer")
             {
+
                 return redirect()->route('index.customer');
             }
             else
             {
-                return redirect()->route('index.admin');
+
+                return redirect()->route('');
             }
         }
         else
