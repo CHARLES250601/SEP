@@ -32,7 +32,7 @@ Route::post('/doregister',[RegisterControler::class,'store']);
 
 
 Route::middleware(['web', 'CekRole:admin'])->group(function (){
-    Route::get('/IndexAdmin',[AdminControler::class,'Home'])->name('index.admin');
+    Route::get('/IndexAdmin',[AdminControler::class,'Crud'])->name('index.admin');
 });
 
 Route::middleware(['web', 'CekRole:customer'])->group(function (){

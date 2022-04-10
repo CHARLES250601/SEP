@@ -45,11 +45,12 @@
                             </div>
                             <ul>
                                 @if(Auth::check())
-                                <span class="text-white" style="line-height: 2.5;margin-right:10px;">Selamat datang, {{Auth::user()->username}}</span>
+                                <li class="menu-item">Selamat Datang {{Auth::user()->username}}</span>
                                 @else
                                 <li class="menu-item" ><a title="Register or Login" href="{{'login'}}">Login</a></li>
                                 @endif
                                 <li class="menu-item" ><a title="Register or Login" href="{{'register'}}">Register</a></li>
+                                <li class="menu-item" ><a title="Register or Login" href="{{ url('logout') }}">Logout</a></li>
 							</ul>
 						</div>
 					</div>

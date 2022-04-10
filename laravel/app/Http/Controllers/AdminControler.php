@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class AdminControler extends Controller
 {
-    public function Home()
+    public function Crud()
     {
-        return view('admin.admin');
+        return view('admin.crud');
     }
 }
