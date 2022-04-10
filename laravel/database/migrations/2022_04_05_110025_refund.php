@@ -26,7 +26,6 @@ class Refund extends Migration
             $table->integer('refund_grandtotal');
             $table->string('refund_alasan');
             $table->enum('refund_status', ['proces','done'])->default('proces');
-            $table->rememberToken();
         });
     }
 

@@ -15,4 +15,9 @@ class Refund extends Model
         return $this->belongsTo(User::class,'user_id','id');
     }
 
+    public function invoices()
+    {
+        return $this->hasMany(Invoice::class,'invoice_id','id');
+    }
+
 }

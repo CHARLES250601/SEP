@@ -15,5 +15,8 @@ class Boardgame extends Model
         return $this->hasMany(Rating::class,'boardgame_id','id');
     }
 
-
+    public function Invoices()
+    {
+        return $this->belongsTo(Invoice::class,'boardgame_id','id');
+    }
 }

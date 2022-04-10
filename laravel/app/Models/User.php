@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function refunds()
     {
-        return $this->hasMany(refunds::class,'user_id','id');
+        return $this->hasMany(Refund::class,'user_id','id');
     }
 
     public function invoices()
@@ -57,5 +57,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Rating::class,'user_id','id');
     }
+
+
 
 }

@@ -1,0 +1,11 @@
+Revisi ERD
+
+Refund Invoice
+one To many
+
+Rating to invoice 
+1 to 1
+
+Board Game 
+one to many 
+

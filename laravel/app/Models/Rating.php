@@ -21,4 +21,14 @@ class Rating extends Model
         return $this->belongsTo(Boardgame::class,'boardgame_id','id');
     }
 
+    public function ratings()
+    {
+        return $this->hasOne(Boardgame::class,'boardgame_id','id');
+    }
+
+
+
+
+
+
 }

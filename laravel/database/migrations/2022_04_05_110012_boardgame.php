@@ -22,7 +22,6 @@ class Boardgame extends Migration
             $table->binary('boardgame_gambar');
             $table->string('boardgame_genre');
             $table->text('boardgame_deskripsi');
-            $table->rememberToken();
         });
     }
 

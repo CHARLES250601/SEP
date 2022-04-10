@@ -22,7 +22,7 @@ class Rating extends Migration
             $table->integer('boargame_harga_beli');
             $table->integer('boargame_harga_jual');
             $table->integer('boargame_stok');
-            $table->binary('boardgame_gambar');
+            $table->text('boardgame_gambar');
             $table->string('boardgame_genre');
             $table->text('boardgame_deskripsi');
             $table->rememberToken();

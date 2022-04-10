@@ -25,7 +25,6 @@ class Invoice extends Migration
             $table->integer('jumlah_boardgame');
             $table->integer('subtotal');
             $table->integer('grandtotal');
-            $table->rememberToken();
         });
     }
 
