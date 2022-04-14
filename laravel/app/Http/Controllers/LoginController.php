@@ -29,7 +29,7 @@ class LoginController extends Controller
             else
             {
 
-                return redirect()->route('index.admin');
+                return redirect()->route('index.Crud');
             }
         }
         else

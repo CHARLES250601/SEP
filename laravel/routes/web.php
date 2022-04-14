@@ -32,8 +32,10 @@ Route::post('/doregister',[RegisterControler::class,'store']);
 
 
 Route::middleware(['web', 'CekRole:admin'])->group(function (){
-    Route::get('/IndexAdmin',[AdminControler::class,'Crud'])->name('index.admin');
+    //Route::get('/IndexAdmin',[AdminControler::class,'Index'])->name('index.admin');
+    Route::get('/Crud',[AdminControler::class,'Crud'])->name('index.Crud');
 });
+
 
 Route::middleware(['web', 'CekRole:customer'])->group(function (){
     Route::get('/IndexCustomer',[CustomerControler::class,'Home'])->name('index.customer');
