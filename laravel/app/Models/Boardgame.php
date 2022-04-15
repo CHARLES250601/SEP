@@ -9,6 +9,7 @@ class Boardgame extends Model
 {
     use HasFactory;
     protected $table  = "boardgame";
+    public $timestamps = false;
 
     public function ratings()
     {
@@ -19,4 +20,11 @@ class Boardgame extends Model
     {
         return $this->belongsTo(Invoice::class,'boardgame_id','id');
     }
+
+
+    public function genres()
+    {
+        return $this->hasOne(Genre::class,'boardgame_id','id');
+    }
+
 }

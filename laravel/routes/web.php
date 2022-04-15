@@ -33,7 +33,8 @@ Route::post('/doregister',[RegisterControler::class,'store']);
 
 Route::middleware(['web', 'CekRole:admin'])->group(function (){
     //Route::get('/IndexAdmin',[AdminControler::class,'Index'])->name('index.admin');
-    Route::get('/Crud',[AdminControler::class,'Crud'])->name('index.Crud');
+    Route::get('/Crud',[AdminControler::class,'Index'])->name('index.Crud');
+    Route::post('/Doinsert',[AdminControler::class,'Store'])->name('boardgame.store');
 });
 
 

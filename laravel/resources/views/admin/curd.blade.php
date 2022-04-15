@@ -7,29 +7,39 @@
     <div class="alert alert-danger">{{ Session::get('pesan') }}</div>
 @endif
 
-<form action="" method="post" enctype="multipart/form-data">
+<form action="{{route('boardgame.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
-        <label class="form-label">Boardgame ID</label>
-        <input type="text" class="form-control" name="hewan_id">
+        <label class="form-label">Boardgame Nama</label>
+        <input type="text" class="form-control" name="boardgame_nama">
     </div>
     <div class="mb-3">
-        <label class="form-label">Boardgame Nama</label>
-        <input type="text" class="form-control" name="hewan_nama">
+        <label class="form-label">Boardgame Price</label>
+        <input type="text" class="form-control" name="boardgame_harga_beli">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Boardgame Sales</label>
+        <input type="text" class="form-control" name="boardgame_harga_jual">
     </div>
     <div class="mb-3">
         <label class="form-label">Boardgame Qty</label>
-        <input type="text" class="form-control" name="hewan_umur">
+        <input type="text" class="form-control" name="boardgame_stok">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Boardgame Gambar</label>
+        <input type="text" class="form-control" name="boardgame_gambar">
     </div>
     <div class="mb-3">
         <label class="form-label">Boardgame Genre</label>
-        <select name="jenis_id" class="form-control">
-
+        <select name="boardgame_genre" class="form-control">
+            @foreach ($boardgame_genres as $row)
+                <option value="{{ $row->id }}">{{ $row->nama_genre }}</option>
+            @endforeach
         </select>
     </div>
     <div class="mb-3">
-        <label class="form-label">Gambar Product</label>
-        <input type="file" class="form-control" name="gambar">
+        <label class="form-label">Boardgame Deskripsi</label>
+        <input type="text" class="form-control" name="boardgame_deskripsi">
     </div>
     <button type="submit" name="btnTambah" class="btn btn-success">Insert</button>
     <button type="submit" name="btnUbah" class="btn btn-primary">Ubah</button>
