@@ -10,10 +10,13 @@ class Genre extends Model
     use HasFactory;
     protected $table = "boardgame_genre";
 
+    protected $fillable = [
+        'nama_genre'
+    ];
 
     public function boardgames()
     {
-        return $this->belongsTo(Boardgame::class,'boardgame_id','id');
+        return $this->belongsTo(Boardgame::class,'id','id');
     }
 
 

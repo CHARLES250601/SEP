@@ -11,6 +11,18 @@ class Boardgame extends Model
     protected $table  = "boardgame";
     public $timestamps = false;
 
+
+    protected $fillable = [
+        'boardgame_nama',
+        'boardgame_harga_beli',
+        'boardgame_harga_jual',
+        'boardgame_stok',
+        'boardgame_gambar',
+        'boardgame_genre',
+        'boardgame_deskripsi',
+    ];
+
+
     public function ratings()
     {
         return $this->hasMany(Rating::class,'boardgame_id','id');

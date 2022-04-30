@@ -17,9 +17,9 @@ class Boardgame extends Migration
             $table->id();
             $table->string ('boardgame_nama');
             $table->integer('boardgame_harga_beli');
-            $table->integer('boargame_harga_jual');
+            $table->integer('boardgame_harga_jual');//ini ganti boardgame
             $table->integer('boardgame_stok');
-            $table->binary('boardgame_gambar');
+            $table->text('boardgame_gambar');
             $table->string('boardgame_genre');
             $table->text('boardgame_deskripsi');
         });
