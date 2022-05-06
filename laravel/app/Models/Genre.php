@@ -16,7 +16,12 @@ class Genre extends Model
 
     public function boardgames()
     {
-        return $this->belongsTo(Boardgame::class,'id','id');
+        return $this->belongsTo(Boardgame::class,'id','boardgame_genre');
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Boardgame::class,'boardgame_genre','id');
     }
 
 

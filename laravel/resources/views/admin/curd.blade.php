@@ -74,8 +74,8 @@
             <td>{{ $row->boardgame_harga_beli }}</td>
             <td>{{ $row->boardgame_harga_jual }}</td>
             <td>{{ $row->boardgame_stok }}</td>
-            <td><img src="{{ asset("storage/images/Boardgame/$row->id.jpg") }}" style="width: 100px;height: 100px;" alt="Tidak ada foto"></td>
-            <td>{{ $row->boardgame_genre}}</td>
+            <td><img src="{{ asset("storage/$row->boardgame_gambar") }}" style="width: 100px;height: 100px;" alt="Tidak ada foto"></td>
+            <td>{{ $row->nama_genre}}</td>
             <td>{{ $row->boardgame_deskripsi }}</td>
             <td>
                 <a href="{{route('boardgame.delete',[$row->id])}}" class="btn btn-danger">Hapus</a>

@@ -25,18 +25,22 @@ class Boardgame extends Model
 
     public function ratings()
     {
-        return $this->hasMany(Rating::class,'boardgame_id','id');
+        return $this->hasMany(Rating::class,'id','boardgame_id');
     }
 
     public function Invoices()
     {
-        return $this->belongsTo(Invoice::class,'boardgame_id','id');
+        return $this->belongsTo(Invoice::class,'id','boardgame_id');
     }
 
 
     public function genres()
     {
-        return $this->hasOne(Genre::class,'boardgame_id','id');
+        return $this->hasOne(Genre::class,'id','boardgame_genre');
     }
 
+    public function products()
+    {
+        return $this->belongsTo(Genre::class,'boardgame_genre','id');
+    }
 }

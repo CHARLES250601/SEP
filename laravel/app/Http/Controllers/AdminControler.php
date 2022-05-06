@@ -12,7 +12,7 @@ class AdminControler extends Controller
     public function Index(Request $request)
     {
         $boardgame_genres = Genre::all();
-        $boardgames = Boardgame::orderBy('id','asc')->get();
+        $boardgames = Boardgame::orderBy('id','asc')->leftJoin('boardgame_genre as bg','bg.id','=','boardgame.boardgame_genre')->select('boardgame.*','bg.nama_genre')->get();
         return view('admin.curd',[
             'boardgame_genres' => $boardgame_genres,
             'boardgames' => $boardgames,
@@ -24,11 +24,13 @@ class AdminControler extends Controller
     {
        if($request->has('btnTambah'))
        {
-            $savedata = Boardgame::create($request->all());
+            $data = $request->all();
+            $name = date('dmYHis').'.jpg';
+            $data['boardgame_gambar'] = 'images/Boardgame/'.date('d-m-Y').'/'.$name;
+            $savedata = Boardgame::create($data);
 
             if($savedata){
-                $namafile = $savedata->id.".jpg";
-                $request->file('boardgame_gambar')->storeAs('images/Boardgame',$namafile,'public');
+                $request->file('boardgame_gambar')->storeAs('images/Boardgame/'.date('d-m-Y'),$name,'public');
                 return redirect('/Crud')->with('succes','berhasil menambahkan Boardgame');
             }
             else
@@ -37,8 +39,7 @@ class AdminControler extends Controller
             }
        }
        elseif($request->has('btnUbah')){
-        $Boardgame = Boardgame::find($request->id); // cari dulu hewan mana yang mau diubah
-        // cek apakah $request->file('gambar') != null -> berarti upload gambar baru
+        $Boardgame = Boardgame::find($request->id);
         if($Boardgame->update($request->all()))
         {
             return redirect('/Crud')->with('succes','berhasil update Boardgame');

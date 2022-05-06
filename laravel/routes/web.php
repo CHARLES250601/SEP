@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminControler;
 use App\Http\Controllers\CustomerControler;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterControler;
+use App\Models\Genre;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layout/main');
+    $boardgame_genres = Genre::all();
+    return view('layout/main',[
+        'boardgame_genres' => $boardgame_genres
+    ]);
 });
 
 Route::get('/login',[LoginController::class,'login']);
