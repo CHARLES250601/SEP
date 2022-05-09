@@ -15,4 +15,12 @@ class CustomerControler extends Controller
         ]);
     }
 
+    public function detail(Request $request)
+    {
+        $boardgame_genres = Genre::all();
+        return view('detail',[
+            'boardgame_genres' => $boardgame_genres
+        ]);
+    }
+
 }

@@ -46,6 +46,7 @@ Route::middleware(['web', 'CekRole:admin'])->group(function (){
 
 Route::middleware(['web', 'CekRole:customer'])->group(function (){
     Route::get('/IndexCustomer',[CustomerControler::class,'Home'])->name('index.customer');
+    Route::get('/detail',[CustomerControler::class,'detail'])->name('index.detail');
 });
 
 
