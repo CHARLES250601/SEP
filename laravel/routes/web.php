@@ -5,6 +5,7 @@ use App\Http\Controllers\CustomerControler;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterControler;
 use App\Models\Genre;
+use App\Models\Boardgame;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,8 @@ Route::get('/logout',[LoginController::class,'logout']);
 Route::get('/register',[RegisterControler::class,'register']);
 Route::post('/doregister',[RegisterControler::class,'store']);
 
+Route::get('detail/{id}',[CustomerControler::class,'detail']);
+
 
 
 Route::middleware(['web', 'CekRole:admin'])->group(function (){
@@ -45,8 +48,7 @@ Route::middleware(['web', 'CekRole:admin'])->group(function (){
 
 
 Route::middleware(['web', 'CekRole:customer'])->group(function (){
-    Route::get('/IndexCustomer',[CustomerControler::class,'Home'])->name('index.customer');
-    Route::get('/detail',[CustomerControler::class,'detail'])->name('index.detail');
+    Route::get('/Dashboard',[CustomerControler::class,'Home'])->name('index.customer');
 });
 
 

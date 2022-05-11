@@ -39,11 +39,6 @@
                 <input type="password" class="form-control"  name="password" placeholder="Password">
                 <label for="floatingPassword">Password</label>
                 </div>
-
-                <div class="checkbox mb-3">
-                <label>
-                    <input type="checkbox" value="remember-me"> Remember me
-                </label>
                 <br>
                 <br>
                 <button class="w-100 btn btn-lg btn-success" type="submit">Login</button>
