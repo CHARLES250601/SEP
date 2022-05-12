@@ -46,11 +46,12 @@
                             <ul>
                                 @if(Auth::check())
                                 <li class="menu-item">Selamat Datang {{Auth::user()->username}}</span>
+                                <li class="menu-item" ><a title="Register or Login" href="{{ url('logout') }}">Logout</a></li>
                                 @else
                                 <li class="menu-item" ><a title="Register or Login" href="{{'login'}}">Login</a></li>
                                 @endif
                                 <li class="menu-item" ><a title="Register or Login" href="{{'register'}}">Register</a></li>
-                                <li class="menu-item" ><a title="Register or Login" href="{{ url('logout') }}">Logout</a></li>
+
 							</ul>
 						</div>
 					</div>
@@ -63,7 +64,7 @@
 						<div class="container">
 							<ul class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu" >
 								<li class="menu-item home-icon">
-									<a href="index.html" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
+									<a href="{{'/'}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
 									<a href="shop.html" class="link-term mercado-item-title">Shop</a>
@@ -133,23 +134,22 @@
 						</div>
 						<div class="tab-contents">
                             @foreach ($boardgame_genres as $key=>$value)
-                            @if($key == 0)
-                                <div class="tab-content-item active" id="{{str_replace(" ","_",$value->nama_genre)}}">
-                            @else
-							    <div class="tab-content-item" id="{{str_replace(" ","_",$value->nama_genre)}}">
-                            @endif
+                                @if($key == 0)
+                                    <div class="tab-content-item active" id="{{str_replace(" ","_",$value->nama_genre)}}">
+                                @else
+                                    <div class="tab-content-item" id="{{str_replace(" ","_",$value->nama_genre)}}">
+                                 @endif
+
 								<div class="wrap-products slide-carousel owl-carousel style-nav-1 equal-container" data-items="5" data-loop="false" data-nav="true" data-dots="false" data-responsive='{"0":{"items":"1"},"480":{"items":"2"},"768":{"items":"3"},"992":{"items":"4"},"1200":{"items":"5"}}' >
                                     @foreach ($value->products as $value_product)
                                         <div class="product product-style-2 equal-elem ">
                                             <div class="product-thumnail">
-                                                <a href="detail.html" title={{$value_product->boardgame_nama}}>
+                                                <!--<a href="detail.html" title={{$value_product->boardgame_nama}}>-->
+                                                <a href="detail/{{$value_product['id']}}">
                                                     <figure><img src="{{ asset("storage/$value_product->boardgame_gambar") }}" width="800" height="800" alt="{{$value_product->boardgame_nama}}"></figure>
                                                 </a>
                                                 <div class="group-flash">
                                                     <span class="flash-item new-label">new</span>
-                                                </div>
-                                                <div class="wrap-btn">
-                                                    <a href="#" class="function-link">quick view</a>
                                                 </div>
                                             </div>
                                             <div class="product-info">
@@ -157,6 +157,7 @@
                                                 <div class="wrap-price"><span class="product-price">Rp. {{number_format($value_product->boardgame_harga_jual,2,'.',',')}}</span></div>
                                             </div>
                                         </div>
+
                                     @endforeach
 								</div>
 							</div>

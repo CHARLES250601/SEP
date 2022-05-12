@@ -18,8 +18,6 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/color-01.css">
 </head>
 <body class=" detail page ">
-
-
 	<!--header-->
 	<header id="header" class="header header-style-1">
 		<div class="container-fluid">
@@ -39,11 +37,11 @@
 							<ul>
 								@if(Auth::check())
                                 <li class="menu-item">Selamat Datang {{Auth::user()->username}}</span>
+								<li class="menu-item" ><a title="Register or Login" href="{{ url('logout') }}">Logout</a></li>
                                 @else
                                 <li class="menu-item" ><a title="Register or Login" href="{{'login'}}">Login</a></li>
                                 @endif
                                 <li class="menu-item" ><a title="Register or Login" href="{{'register'}}">Register</a></li>
-                                <li class="menu-item" ><a title="Register or Login" href="{{ url('logout') }}">Logout</a></li>
 							</ul>
 						</div>
 					</div>
@@ -86,29 +84,28 @@
 
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 					<div class="wrap-product-detail">
-						<div class="detail-media">
-							<div class="product-gallery">
-							    <li data-thumb="assets/images/products/digital_18.jpg">
-							    	<img src="assets/images/products/digital_18.jpg" alt="product thumbnail" />
-							    </li>
-							</div>
-						</div>
-						<div class="detail-info">
+                                <div class="detail-media">
+                                    <div class="product-gallery">
+                                        <li data-thumb="assets/images/products/digital_18.jpg">
+                                            <img src="{{ asset("storage/$Boardgame->boardgame_gambar") }}" width="800" height="800" alt="{{$Boardgame->boardgame_nama}}">
+                                        </li>
+                                    </div>
+                                </div>
+                                <div class="detail-info">
+                                <h2 class="product-name">{{$Boardgame->boardgame_nama}}</h2>
+                                <div class="wrap-price"><span class="product-price">Rp. {{number_format($Boardgame->boardgame_harga_jual,2,'.',',')}}</span></div>
+                                <div class="quantity">
+                                    <span>Quantity:{{$Boardgame->boardgame_stok}}</span>
+                                    <div class="quantity-input">
+                                        <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
 
-                            <h2 class="product-name">Radiant-360 R6 Wireless Omnidirectional Speaker [White]</h2>
-                            <div class="wrap-price"><span class="product-price">$250.00</span></div>
-                            <div class="quantity">
-                            	<span>Quantity:</span>
-								<div class="quantity-input">
-									<input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
-
-									<a class="btn btn-reduce" href="#"></a>
-									<a class="btn btn-increase" href="#"></a>
-								</div>
-							</div>
-							<div class="wrap-butons">
-								<a href="#" class="btn add-to-cart">Add to Cart</a>
-							</div>
+                                        <a class="btn btn-reduce" href="#"></a>
+                                        <a class="btn btn-increase" href="#"></a>
+                                    </div>
+                                </div>
+                                <div class="wrap-butons">
+                                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                                </div>
 						</div>
 						<div class="advance-info">
 							<div class="tab-control normal">
