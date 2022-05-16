@@ -92,7 +92,7 @@
 
 			<div class="wrap-breadcrumb">
 				<ul>
-					<li class="item-link"><a href="#" class="link">home</a></li>
+					<li class="item-link"><a href="{{'/'}}" class="link">home</a></li>
 					<li class="item-link"><span>login</span></li>
 				</ul>
 			</div>
@@ -110,7 +110,7 @@
                                 <div class="product-name">
                                     <a class="link-to-product" href="#">{{$value->boardgames->boardgame_nama}}</a>
                                 </div>
-                                <div class="price-field produtc-price"><p class="price">{{$value->boardgames->boardgame_harga_jual}}</p></div>
+                                <div class="price-field produtc-price"><p class="price">Rp.{{number_format ($value->boardgames->boardgame_harga_jual,0,'.',',')}}</p></div>
                                 <div class="quantity">
                                     <div class="quantity-input">
                                         <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*">
@@ -118,7 +118,7 @@
                                         <a class="btn btn-reduce" href="#"></a>
                                     </div>
                                 </div>
-                                <div class="price-field sub-total"><p class="price">{{$value->boardgames->boardgame_harga_jual}}</p></div>
+                                <div class="price-field sub-total"><p class="price">Rp.{{number_format ($value->boardgames->boardgame_harga_jual,0,'.',',')}}</p></div>
                                 <div class="delete">
                                     <a href="#" class="btn btn-delete" title="">
                                         <span>Delete from your cart</span>

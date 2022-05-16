@@ -32,7 +32,7 @@ Route::post('/dologin',[LoginController::class,'dologin'])->name('dologin');
 Route::get('/logout',[LoginController::class,'logout']);
 
 Route::get('/register',[RegisterControler::class,'register']);
-Route::post('/doregister',[RegisterControler::class,'store']);
+Route::post('/doregister',[RegisterControler::class,'store'])->name('doregister');
 
 Route::get('detail/{id}',[CustomerControler::class,'detail']);
 

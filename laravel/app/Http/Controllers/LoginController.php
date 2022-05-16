@@ -34,7 +34,7 @@ class LoginController extends Controller
         }
         else
         {
-            return redirect('/login')->with(['pesan'=>'Gagal Login Bro...']);
+            return redirect('/login')->with(['pesan'=>'Gagal Login']);
         }
     }
 

@@ -7,6 +7,7 @@
 	<title>Dashboard</title>
     <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="assets/css/animate.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/font-awesome.min.css">
@@ -67,7 +68,7 @@
 									<a href="{{'/'}}" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"></i></a>
 								</li>
 								<li class="menu-item">
-									<a href="shop.html" class="link-term mercado-item-title">Shop</a>
+									<a href="{{'/'}}" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
 									<a href="{{'Cart'}}" class="link-term mercado-item-title">Cart</a>

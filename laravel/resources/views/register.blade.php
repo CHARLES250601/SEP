@@ -1,70 +1,111 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Register</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="/signin.css">
-  </head>
+<head>
+	<title>Register</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <body class="text-center">
+	<link rel="icon" type="image/png" href="assets/login/images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="assets/login/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/login/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="assets/login/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/login/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/login/css/util.css">
+	<link rel="stylesheet" type="text/css" href="assets/login/css/main.css">
+</head>
+<body>
 
-    @if ($errors->any())
-    <div class="error">
-        <ul>
-            @foreach ($errors->all() as $err)
-                <li class="alert alert-danger">{{$err}}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-pic js-tilt" data-tilt>
+					<img src="assets/login/images/img-01.png" alt="IMG">
+				</div>
+				<form action="{{route('doregister')}}" method="POST" class="login100-form validate-form">
+                    @csrf
+					<span class="login100-form-title">
+						Register
+					</span>
 
-        <main class="form-signin">
-            <form action="/doregister" method="POST">
-                @csrf
-                <img class="mb-4" src="login.jpg" alt="" width="100" height="100">
-                <h1 class="h3 mb-3 fw-normal">Please Register</h1>
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="username" placeholder="username">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-user" aria-hidden="true"></i>
+						</span>
+					</div>
 
-                <div class="form-floating">
-                    <input type="text" class="form-control" name="username" placeholder="johndoe" required >
-                    <label for="floatingInput">Username</label>
-                </div>
+                    <div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="name" placeholder="Name">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-id-card-o" aria-hidden="true"></i>
+						</span>
+					</div>
 
-                <div class="form-floating">
-                    <input type="text" class="form-control" name="name" placeholder="johndoe" required >
-                    <label for="floatingInput">Name</label>
-                </div>
+                    <div class="wrap-input100 validate-input" >
+						<input class="input100" type="password" name="password" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
 
-                <div class="form-floating">
-                    <input type="password" class="form-control"  name="password" placeholder="Password" required>
-                    <label for="floatingPassword">Password</label>
-                </div>
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
 
-                <div class="form-floating">
-                    <input type="email" class="form-control"  name="email" placeholder="Email" required>
-                    <label for="floatingPassword">Email@example</label>
-                    </div>
-                </div>
 
-                <div class="form-floating">
-                    <input type="text" class="form-control"  name="alamat" placeholder="Alamat" required>
-                    <label for="floatingPassword">address</label>
-                    </div>
-                </div>
-                <br>
-                <button class="w-100 btn btn-lg btn-success" type="submit">Register</button>
-            </form>
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="alamat" placeholder="alamat">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-address-card" aria-hidden="true"></i>
+						</span>
+					</div>
 
-        </main>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Register
+						</button>
+					</div>
 
-@if (Session::has('pesan'))
-    <div class="alert alert-danger">{{ Session::get('pesan') }}</div>
-@endif
+
+					<div class="text-center">
+						<a class="txt2" href="{{'/'}}">
+							back to home
+							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+<!--===============================================================================================-->
+	<script src="assets/login/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/login/vendor/bootstrap/js/popper.js"></script>
+	<script src="assets/login/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/login/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/login/vendor/tilt/tilt.jquery.min.js"></script>
+	<script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="assets/login/js/main.js"></script>
 
 </body>
 </html>

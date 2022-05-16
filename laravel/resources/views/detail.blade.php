@@ -87,7 +87,7 @@
 					<div class="wrap-product-detail">
                             <div class="detail-media">
                                 <div class="product-gallery">
-                                                <img src="{{"/storage/".$Boardgame->boardgame_gambar}}" width="800" height="800" alt="{{$Boardgame->boardgame_nama}}">
+                                     <img src="{{"/storage/".$Boardgame->boardgame_gambar}}" width="800" height="800" alt="{{$Boardgame->boardgame_nama}}">
                                 </div>
                             </div>
                                 <form action ='/DoAdd/{{$Boardgame->id}}' method="POST">
