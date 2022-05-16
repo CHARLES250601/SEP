@@ -59,7 +59,7 @@
 									<a href="about-us.html" class="link-term mercado-item-title">Shop</a>
 								</li>
 								<li class="menu-item">
-									<a href="shop.html" class="link-term mercado-item-title">Cart</a>
+									<a href="{{'Cart'}}" class="link-term mercado-item-title">Cart</a>
 								</li>
 								<li class="menu-item">
 									<a href="cart.html" class="link-term mercado-item-title">Checkout</a>
@@ -75,6 +75,10 @@
 		</div>
 	</header>
 
+    <div class="container">
+        @yield('konten')
+    </div>
+
 	<!--main area-->
 	<main id="main" class="main-site">
 		<div class="container">
@@ -82,27 +86,28 @@
 				<div class="col-lg-9 col-md-8 col-sm-8 col-xs-12 main-content-area">
 					<div class="wrap-product-detail">
                             <div class="detail-media">
-
-                                        <div class="product-gallery">
-                                                <img src="{{ asset("storage/$Boardgame->boardgame_gambar") }}" width="800" height="800" alt="{{$Boardgame->boardgame_nama}}">
-                                        </div>
-
+                                <div class="product-gallery">
+                                                <img src="{{"/storage/".$Boardgame->boardgame_gambar}}" width="800" height="800" alt="{{$Boardgame->boardgame_nama}}">
+                                </div>
                             </div>
-                                        <div class="detail-info">
+                                <form action ='/DoAdd/{{$Boardgame->id}}' method="POST">
+                                    @csrf
+                                    <div class="detail-info">
                                         <h2 class="product-name">{{$Boardgame->boardgame_nama}}</h2>
                                         <div class="wrap-price"><span class="product-price">Rp. {{number_format($Boardgame->boardgame_harga_jual,0,'.',',')}}</span>
                                         </div>
                                         <div class="quantity-input">
-                                            <input type="button" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
+                                            <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*" >
 
                                             <a class="btn btn-reduce" href="#"></a>
                                             <a class="btn btn-increase" href="#"></a>
                                         </div>
 
                                                 <div class="wrap-butons">
-                                                    <a href="#" class="btn add-to-cart">Add to Cart</a>
+                                                    <button class="btn add-to-cart">Add to Cart</button>
                                                 </div>
                                         </div>
+                                </form>
 
 
                                 <div class="advance-info">

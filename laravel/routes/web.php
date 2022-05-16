@@ -38,6 +38,7 @@ Route::get('detail/{id}',[CustomerControler::class,'detail']);
 
 
 
+
 Route::middleware(['web', 'CekRole:admin'])->group(function (){
     Route::get('/Crud',[AdminControler::class,'Index'])->name('index.Crud');
     Route::post('/Doinsert',[AdminControler::class,'Store'])->name('boardgame.store');
@@ -49,6 +50,8 @@ Route::middleware(['web', 'CekRole:admin'])->group(function (){
 
 Route::middleware(['web', 'CekRole:customer'])->group(function (){
     Route::get('/Dashboard',[CustomerControler::class,'Home'])->name('index.customer');
+    Route::get('/Cart',[CustomerControler::class,'cart'])->name('index.cart');
+    Route::post('/DoAdd/{id}',[CustomerControler::class,'addcart'])->name('Add.cart');
 });
 
 

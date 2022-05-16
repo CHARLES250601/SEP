@@ -42,9 +42,8 @@
             @endforeach
         </select>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Boardgame Deskripsi</label>
-        <input type="text" class="form-control" name="boardgame_deskripsi" placeholder="desc">
+    <div class="col-md-12">
+        <textarea name="boardgame_deskripsi" rows="10" cols="173" placeholder="desc"></textarea>
     </div>
     <button type="submit" name="btnTambah" class="btn btn-success">Insert</button>
     <button type="submit" name="btnUbah" class="btn btn-primary">Update</button>

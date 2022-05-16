@@ -43,4 +43,9 @@ class Boardgame extends Model
     {
         return $this->belongsTo(Genre::class,'boardgame_genre','id');
     }
+
+    public function carts()
+    {
+        return $this->belongsTo(Cart::class,'id','boardgame_id');
+    }
 }
