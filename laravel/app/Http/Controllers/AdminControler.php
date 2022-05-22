@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Boardgame;
 use App\Models\Genre;
+use App\Models\User;
 use BoardgameGenre;
 use Illuminate\Http\Request;
 
@@ -91,6 +92,20 @@ class AdminControler extends Controller
         $updatedata = Boardgame::where('id',$id)->delete();
         return redirect('/Admin')->with('succes','berhasil menghapus Boardgame');
 
+    }
+
+    public function user(Request $request)
+    {
+        $users = User::all();
+        return view('admin.user',[
+            'user' => $users,
+        ]);
+    }
+
+    public function deleteusr($id)
+    {
+        $updateuser = User::where('id',$id)->delete();
+        return redirect('admin.user')->with('succes','berhasil menghapus User');
     }
 
 

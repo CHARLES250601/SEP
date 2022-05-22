@@ -6,6 +6,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterControler;
 use App\Models\Genre;
 use App\Models\Boardgame;
+use App\Models\User;
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,8 @@ Route::middleware(['web', 'CekRole:admin'])->group(function (){
     Route::post('/Doinsert',[AdminControler::class,'Store'])->name('boardgame.store');
     Route::get('/Dodelete{id}',[AdminControler::class,'delete'])->name('boardgame.delete');
     Route::post('/Dodupdate{id}',[AdminControler::class,'doupdate'])->name('boardgame.update');
+    Route::get('/user',[AdminControler::class,'user'])->name('index.user');
+    Route::post('/Dodeleteuser{id}',[AdminControler::class,'deleteusr'])->name('user.delete');
 });
 
 

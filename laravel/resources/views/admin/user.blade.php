@@ -116,7 +116,7 @@
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title"></h3>
-                  <a href="{{'Add'}}" button type="button" class="btn btn-success" >Add Boardgame</a></button>
+
                   <BR>
                   <BR>
                   <div class="card-tools">
@@ -124,34 +124,32 @@
                   </div>
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
-                            <th>ID</th>
-                            <th>Boardgame</th>
-                            <th>Boardgame Price</th>
-                            <th>Boardgame Sales</th>
-                            <th>Qty</th>
-                            <th>Image</th>
-                            <th>Genre</th>
-                            <th>Desc</th>
-                            <th>Action</th>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Alamat</th>
+                        <th>Role</th>
                     </thead>
+
                     <tbody>
-                        @foreach ($boardgames as $row)
+                        @foreach ($user as $row)
                         <tr>
                             <td>{{ $row->id }}</td>
-                            <td>{{ $row->boardgame_nama }}</td>
-                            <td>Rp.{{number_format( $row->boardgame_harga_beli,0,'.','.') }}</td>
-                            <td>Rp.{{ number_format($row->boardgame_harga_jual,0,'.','.') }}</td>
-                            <td>{{ $row->boardgame_stok }}</td>
-                            <td><img src="{{ asset("storage/$row->boardgame_gambar") }}" style="width: 100px;height: 100px;" alt="Tidak ada foto"></td>
-                            <td>{{ $row->nama_genre}}</td>
-                            <td>{{ $row->boardgame_deskripsi }}</td>
+                            <td>{{ $row->username }}</td>
+                            <td>{{ $row->password }}</td>
+                            <td>{{ $row->name}}</td>
+                            <td>{{ $row->email }}</td>
+                            <td>{{ $row->alamat }}</td>
+                            <td>{{ $row->role }}</td>
                             <td>
-                                <a href="{{route('boardgame.delete',[$row->id])}}" class="btn btn-danger">Delete</a>
-                                <a href="{{route('index.update',[$row->id])}}" class="btn btn-primary">Update</a>
+                                <a href="{{route('user.delete',[$row->id])}}" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                         @endforeach
                     </tbody>
+
                   </table>
                 </div>
               </div>
