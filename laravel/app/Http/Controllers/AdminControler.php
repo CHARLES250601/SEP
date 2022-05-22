@@ -105,7 +105,7 @@ class AdminControler extends Controller
     public function deleteusr($id)
     {
         $updateuser = User::where('id',$id)->delete();
-        return redirect('admin.user')->with('succes','berhasil menghapus User');
+        return redirect('user')->with('succes','berhasil menghapus User');
     }
 
 
