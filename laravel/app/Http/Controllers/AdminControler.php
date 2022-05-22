@@ -70,16 +70,19 @@ class AdminControler extends Controller
     public function doupdate(Request $request,$id)
     {
         $data = Boardgame::where('id',$id)->first();
+        $name = date('dmYHis').'.jpg';
+        $data->boardgame_gambar = 'images/Boardgame/'.date('d-m-Y').'/'.$name;
         $data->boardgame_nama = $request->boardgame_nama;
         $data->boardgame_harga_beli = $request->boardgame_harga_beli;
         $data->boardgame_harga_jual = $request->boardgame_harga_jual;
         $data->boardgame_stok = $request->boardgame_stok;
-        $data->boardgame_gambar = $request->boardgame_gambar;
         $data->boardgame_genre = $request->boardgame_genre;
         $data->boardgame_deskripsi = $request->boardgame_deskripsi;
 
+        $request->file('boardgame_gambar')->storeAs('images/Boardgame/'.date('d-m-Y'),$name,'public');
         $data->save();
-        return redirect('/Admin')->with('succes','berhasil mengubah data');
+        return redirect('/Admin')->with('succes','berhasil update Boardgame');
+
 
     }
 
