@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminControler;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerControler;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterControler;
@@ -40,15 +41,23 @@ Route::get('detail/{id}',[CustomerControler::class,'detail']);
 
 
 
+
 Route::middleware(['web', 'CekRole:admin'])->group(function (){
     Route::get('/Admin',[AdminControler::class,'Index'])->name('index.Admin');
     Route::get('/Add',[AdminControler::class,'Add'])->name('index.add');
+
     Route::get('/Update/{id}',[AdminControler::class,'update'])->name('index.update');
     Route::post('/Doinsert',[AdminControler::class,'Store'])->name('boardgame.store');
     Route::get('/Dodelete/{id}',[AdminControler::class,'delete'])->name('boardgame.delete');
     Route::post('/Dodupdate/{id}',[AdminControler::class,'doupdate'])->name('boardgame.update');
+
     Route::get('/user',[AdminControler::class,'user'])->name('index.user');
     Route::get('/Dodeleteuser/{id}',[AdminControler::class,'deleteusr'])->name('user.delete');
+    Route::get('/updateuser/{id}',[AdminControler::class,'updateuser'])->name('user.update');
+    Route::post('/Dodupdate/{id}',[AdminControler::class,'doupdateuser'])->name('user.doupdate');
+
+
+
 });
 
 
@@ -56,6 +65,8 @@ Route::middleware(['web', 'CekRole:customer'])->group(function (){
     Route::get('/Dashboard',[CustomerControler::class,'Home'])->name('index.customer');
     Route::get('/Cart',[CustomerControler::class,'cart'])->name('index.cart');
     Route::post('/DoAdd/{id}',[CustomerControler::class,'addcart'])->name('Add.cart');
+    Route::get('checkout',[CheckoutController::class,'checkout'])->name('index.checkout');
+    Route::post('docheckout',[CheckoutController::class,'docheckout'])->name('customer.checkout');
 });
 
 

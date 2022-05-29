@@ -7,6 +7,7 @@ use App\Models\Genre;
 use App\Models\User;
 use BoardgameGenre;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class AdminControler extends Controller
 {
@@ -96,11 +97,33 @@ class AdminControler extends Controller
 
     public function user(Request $request)
     {
-        $users = User::all();
+        $users = User::where('role','!=','admin')->get();
         return view('admin.user',[
             'user' => $users,
         ]);
     }
+
+    public function updateuser(Request $request,$id)
+    {
+        $users = User::where('id',$id)->first();
+        return view('admin.usercurd',[
+            'user' => $users,
+        ]);
+
+    }
+
+    public function doupdateuser(Request $request,$id)
+    {
+        $savedata = User::where('id',$id)->first();
+        $savedata->username    =  $request->username;
+        $savedata->name        =  $request->name;
+        $savedata->password    =  Hash::make($request->password);
+        $savedata->email       =  $request->email;
+        $savedata->alamat      =  $request->alamat;
+        $savedata->save();
+        return redirect('user')->with('succes','berhasil update User');
+    }
+
 
     public function deleteusr($id)
     {

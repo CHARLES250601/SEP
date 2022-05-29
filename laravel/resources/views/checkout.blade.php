@@ -83,62 +83,80 @@
 	</header>
 
 	<!--main area-->
-	<main id="main" class="main-site">
+<!--main area-->
+<main id="main" class="main-site">
 
-		<div class="container">
+    <div class="container">
 
-			<div class="wrap-breadcrumb">
-				<ul>
-					<li class="item-link"><a href="{{'/'}}" class="link">home</a></li>
-					<li class="item-link"><span>login</span></li>
-				</ul>
-			</div>
-			<div class=" main-content-area">
+        <div class="wrap-breadcrumb">
+            <ul>
+                <li class="item-link"><a href="#" class="link">home</a></li>
+                <li class="item-link"><span>login</span></li>
+            </ul>
+        </div>
+        <div class=" main-content-area">
+            <div class="wrap-address-billing">
+                <h3 class="box-title">Billing Address</h3>
+                <form action="{{'docheckout'}}" method="post" name="frm-billing">
+                    @csrf
+                    <p class="row-in-form">
+                        <label for="fname">first name<span>*</span></label>
+                        <input id="fname" type="text" name="first_name" value="" placeholder="Your name">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="lname">last name<span>*</span></label>
+                        <input id="lname" type="text" name="last_name" value="" placeholder="Your last name">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="email">Email Addreess:</label>
+                        <input id="email" type="email" name="email_address" value="" placeholder="Type your email">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="phone">Phone number<span>*</span></label>
+                        <input id="phone" type="number" name="phone_number" value="" placeholder="10 digits format">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="add">Address:</label>
+                        <input id="add" type="text" name="address" value="address" placeholder="Street at apartment number">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="country">Country<span>*</span></label>
+                        <input id="country" type="text" name="country" value="" placeholder="United States">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="zip-code">Postcode / ZIP:</label>
+                        <input id="zip-code" type="number" name="post_code" value="" placeholder="Your postal code">
+                    </p>
+                    <p class="row-in-form">
+                        <label for="city">Town / City<span>*</span></label>
+                        <input id="city" type="text" name="town" value="" placeholder="City name">
+                    </p>
 
-				<div class="wrap-iten-in-cart">
-					<h3 class="box-title">Products Name</h3>
-					<ul class="products-cart">
-                        @foreach (\Auth::user()->carts as $value)
-                            {{-- @dd($value->boardgames) --}}
-                            <li class="pr-cart-item">
-                                <div class="product-image">
-                                    <figure> <img src="{{"/storage/".$value->boardgames->boardgame_gambar}}" width="800" height="800" alt="{{$value->boardgames->boardgame_nama}}"></figure>
-                                </div>
-                                <div class="product-name">
-                                    <a class="link-to-product" href="#">{{$value->boardgames->boardgame_nama}}</a>
-                                </div>
-                                <div class="price-field produtc-price"><p class="price">Rp.{{number_format ($value->boardgames->boardgame_harga_jual,0,'.',',')}}</p></div>
-                                <div class="quantity">
-                                    <div class="quantity-input">
-                                        <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*">
-                                        <a class="btn btn-increase" href="#"></a>
-                                        <a class="btn btn-reduce" href="#"></a>
-                                    </div>
-                                </div>
-                                <div class="price-field sub-total"><p class="price">Rp.{{number_format ($value->boardgames->boardgame_harga_jual,0,'.',',')}}</p></div>
-                                <div class="delete">
-                                    <a href="#" class="btn btn-delete" title="">
-                                        <span>Delete from your cart</span>
-                                        <i class="fa fa-times-circle" aria-hidden="true"></i>
-                                    </a>
-                                </div>
-                            </li>
-                        @endforeach
-					</ul>
-				</div>
+            </div>
+            <?php
+                $total = 0;
+            ?>
+            @foreach (\Auth::user()->carts as $value)
+                <?php
+                    $total += $value->boardgames->boardgame_harga_jual * $value->qty;
+                ?>
+            @endforeach
 
-				<div class="summary">
-					<div class="order-summary">
-						<h4 class="title-box">Order Summary</h4>
-						<p class="summary-info"><span class="title">Subtotal</span><b class="index">Rp.{{number_format (isset($value->boardgames->boardgame_harga_jual)?$value->boardgames->boardgame_harga_jual:0,0,'.',',')}}</b></p>
-						<p class="summary-info total-info "><span class="title">Total</span><b class="index"></b></p>
-					</div>
-					<div class="checkout-info">
-						<a class="btn btn-checkout" href="{{'checkout'}}">Check out</a>
-						<a class="link-to-shop" href="/">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
-					</div>
-				</div>
-	</main>
+
+            <div class="summary summary-checkout">
+                <div class="summary-item payment-method">
+                    <h4 class="title-box">Payment Method</h4>
+                    <p class="summary-info"><span class="title">BCA - Rek 219310440 A/N Charles Vladimir</span></p>
+                    <p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">Rp.{{number_format ($total ,0,'.',',')}}</span></p>
+                    <button  class="btn btn-medium">order now</button>
+                </div>
+            </div>
+        </form>
+        </div><!--end main content area-->
+    </div><!--end container-->
+
+</main>
+
 
 
 			<!--End function info-->

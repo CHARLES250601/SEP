@@ -79,15 +79,8 @@
               </li>
 
               <li class="nav-item">
-                <a href="/user" class="nav-link">
-                    <i class="nav-icon fas fa-address-card"></i>
-                    <p> User</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
                 <a href="{{ url('logout') }}" class="nav-link">
-                    <i class="nav-icon fas fa-power-off"></i>
+                    <i class="nav-icon fas fa-sign-out-alt"></i>
                     <p> Log out</p>
                 </a>
               </li>
@@ -111,48 +104,36 @@
         </section>
         <!-- Main content -->
         <section class="content">
-          <div class="row">
-            <div class="col-12">
-              <div class="card">
-                <div class="card-header">
-                  <h3 class="card-title"></h3>
-
-                  <BR>
-                  <BR>
-                  <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;"></div>
-                  </div>
-                  <table id="example2" class="table table-bordered table-hover">
-                    <thead>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Alamat</th>
-                        <th>Role</th>
-                        <th>Action</th>
-                    </thead>
-
-                    <tbody>
-                        @foreach ($user as $row)
-                        <tr>
-                            <td>{{ $row->id }}</td>
-                            <td>{{ $row->username }}</td>
-                            <td>{{ $row->name}}</td>
-                            <td>{{ $row->email }}</td>
-                            <td>{{ $row->alamat }}</td>
-                            <td>{{ $row->role }}</td>
-                            <td>
-                                <a href="{{route('user.delete',[$row->id])}}" class="btn btn-danger">Delete</a>
-                                <a href="{{route('user.update',[$row->id])}}" class="btn btn-warning">Update</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-
-                  </table>
+            <div class="card card-info card-outline">
+              <div class="card-header">
+                <form action="{{ route('user.doupdate',$user->id) }}" method="post">
+                  {{@csrf_field()}}
+                  <div class="form-group">
+                    <label class="form-label">Ussername</label>
+                    <input type="text" class="form-control" name="ussername" placeholder="Ussername">
                 </div>
+                <div class="form-group">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" name="email" placeholder="Rp.">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="text" class="form-control" name="password" placeholder="new password">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">email</label>
+                    <input type="text" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">alamat</label>
+                    <input type="file" class="form-control" name="alamat">
+                </div>
+                  <div class="form-group">
+                      <button type="submit" name="btnUpdate" class="btn btn-success"> Update Data </button>
+                  </div>
+                </form>
               </div>
+            </div>
         </section>
         <!-- /.content -->
       </div>

@@ -48,4 +48,10 @@ class Boardgame extends Model
     {
         return $this->belongsTo(Cart::class,'id','boardgame_id');
     }
+
+    public function details()
+    {
+        return $this->belongsTo(Order_Detail::class,'id','boardgame_id');
+    }
+
 }
