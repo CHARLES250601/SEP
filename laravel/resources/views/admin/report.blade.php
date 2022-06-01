@@ -86,7 +86,7 @@
               </li>
 
               <li class="nav-item">
-                <a href="/report" class="nav-link">
+                <a href="" class="nav-link">
                     <i class="nav-icon fas fa-file"></i>
                     <p> Report </p>
                 </a>
@@ -132,31 +132,25 @@
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                         <th>ID</th>
-                        <th>Username</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Alamat</th>
-                        <th>Role</th>
-                        <th>Action</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Total</th>
                     </thead>
 
                     <tbody>
-                        @foreach ($user as $row)
+                        @foreach ($reports as $row)
                         <tr>
                             <td>{{ $row->id }}</td>
-                            <td>{{ $row->username }}</td>
-                            <td>{{ $row->name}}</td>
-                            <td>{{ $row->email }}</td>
-                            <td>{{ $row->alamat }}</td>
-                            <td>{{ $row->role }}</td>
-                            <td>
-                                <a href="{{route('user.delete',[$row->id])}}" class="btn btn-danger">Delete</a>
-                                <a href="{{route('user.update',[$row->id])}}" class="btn btn-warning">Update</a>
-                            </td>
+                            <td>{{ $row->first_name}}</td>
+                            <td>{{ $row->email_address }}</td>
+                            <td>{{ $row->phone_number }}</td>
+                            <td>{{ $row->address }}</td>
+                            <td>{{ $row->grand_total }}</td>
                         </tr>
                         @endforeach
                     </tbody>
-
                   </table>
                 </div>
               </div>

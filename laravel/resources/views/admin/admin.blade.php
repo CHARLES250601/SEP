@@ -86,6 +86,13 @@
               </li>
 
               <li class="nav-item">
+                <a href="/report" class="nav-link">
+                    <i class="nav-icon fas fa-file"></i>
+                    <p> Report </p>
+                </a>
+              </li>
+
+              <li class="nav-item">
                 <a href="{{ url('logout') }}" class="nav-link">
                     <i class="nav-icon fas fa-power-off"></i>
                     <p> Log out</p>

@@ -5,6 +5,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\CustomerControler;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterControler;
+use App\Http\Controllers\ReportController;
 use App\Models\Genre;
 use App\Models\Boardgame;
 use App\Models\User;
@@ -56,7 +57,7 @@ Route::middleware(['web', 'CekRole:admin'])->group(function (){
     Route::get('/updateuser/{id}',[AdminControler::class,'updateuser'])->name('user.update');
     Route::post('/Dodupdate/{id}',[AdminControler::class,'doupdateuser'])->name('user.doupdate');
 
-
+    Route::get('report',[ReportController::class,'report'])->name('report.index');
 
 });
 
