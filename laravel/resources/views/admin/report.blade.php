@@ -169,7 +169,7 @@
                             <td>{{ $row->email_address }}</td>
                             <td>{{ $row->phone_number }}</td>
                             <td>{{ $row->address }}</td>
-                            <td>{{ $row->grand_total }}</td>
+                            <td>Rp. {{ number_format($row->grand_total ,0,',','.') }}</td>
                         </tr>
                         @endforeach
                     </tbody>

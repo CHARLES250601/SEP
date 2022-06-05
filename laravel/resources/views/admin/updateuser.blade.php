@@ -12,12 +12,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BOARDGAME</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="assets/adminlte/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="/assets/adminlte/plugins/fontawesome-free/css/all.min.css">
 
-    <link rel="stylesheet" href="assets/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-    <link rel="stylesheet" href="assets/adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-    <link rel="stylesheet" href="assets/adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-    <link rel="stylesheet" href="assets/adminlte/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/assets/adminlte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="/assets/adminlte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="/assets/adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+    <link rel="stylesheet" href="/assets/adminlte/dist/css/adminlte.min.css">
   </head>
   <body class="hold-transition sidebar-mini">
     <!-- Site wrapper -->
@@ -77,6 +77,39 @@
                   </li>
                 </ul>
               </li>
+
+              <li class="nav-item">
+                <a href="/user" class="nav-link">
+                    <i class="nav-icon fas fa-address-card"></i>
+                    <p> User</p>
+                </a>
+              </li>
+
+              <li class="nav-item">
+                <a href="report" class="nav-link">
+                    <i class="nav-icon fas fa-file"></i>
+                    <p> Report </p>
+                </a>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/reportbarang" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report Item</p>
+                      </a>
+                    </li>
+
+                </ul>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/reportuser" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report User</p>
+                      </a>
+                    </li>
+                </ul>
+
 
               <li class="nav-item">
                 <a href="{{ url('logout') }}" class="nav-link">
@@ -162,14 +195,14 @@
       </aside>
 
     </div>
-    <script src="assets/adminlte/plugins/jquery/jquery.min.js"></script>>
-    <script src="assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/adminlte/dist/js/adminlte.min.js"></script>
-    <script src="assets/adminlte/dist/js/demo.js"></script>
-    <script src="assets/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="assets/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <script src="assets/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="assets/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-    <script src="assets/adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="/assets/adminlte/plugins/jquery/jquery.min.js"></script>
+    <script src="/assets/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/adminlte/dist/js/adminlte.min.js"></script>
+    <script src="/assets/adminlte/dist/js/demo.js"></script>
+    <script src="/assets/adminlte/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="/assets/adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="/assets/adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="/assets/adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="/assets/adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
   </body>
 </html>

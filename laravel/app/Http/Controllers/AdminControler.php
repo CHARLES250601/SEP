@@ -61,7 +61,7 @@ class AdminControler extends Controller
     {
         $boardgame_genres = Genre::all();
         $boardgames = Boardgame::where('id',$id)->first();
-        return view('admin.update',[
+        return view('admin.updateuser',[
             'boardgame_genres' => $boardgame_genres,
             'boardgames' => $boardgames,
         ]);

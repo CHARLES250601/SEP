@@ -39,7 +39,7 @@ class CheckoutController extends Controller
         $savedata->grand_total = $total;
         $savedata->save();
 
-        return redirect('/cart');
+        return redirect('/');
     }
 
 

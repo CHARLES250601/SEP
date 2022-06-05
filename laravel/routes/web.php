@@ -55,7 +55,7 @@ Route::middleware(['web', 'CekRole:admin'])->group(function (){
     Route::get('/user',[AdminControler::class,'user'])->name('index.user');
     Route::get('/Dodeleteuser/{id}',[AdminControler::class,'deleteusr'])->name('user.delete');
     Route::get('/updateuser/{id}',[AdminControler::class,'updateuser'])->name('user.update');
-    Route::post('/Dodupdate/{id}',[AdminControler::class,'doupdateuser'])->name('user.doupdate');
+    Route::post('/Dodupdateuser/{id}',[AdminControler::class,'doupdateuser'])->name('user.doupdate');
 
     Route::get('report',[ReportController::class,'report'])->name('report.index');
     Route::get('reportbarang',[ReportController::class,'reportbarang'])->name('report.barang');

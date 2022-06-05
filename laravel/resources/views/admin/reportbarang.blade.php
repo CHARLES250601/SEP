@@ -168,9 +168,9 @@
                             <td>{{ $row->qty_sold }}</td>
                             <td>Rp. {{ number_format($row->purchase_price,2,',','.') }}</td>
                             <td>Rp. {{ number_format($row->sell_price,2,',','.') }}</td>
-                            <td>Rp. {{ number_format(($row->purchase_price* $row->qty_sold),2,',','.') }}</td>
-                            <td>Rp. {{ number_format(($row->sell_price* $row->qty_sold),2,',','.') }}</td>
-                            <td>Rp. {{ number_format(($row->sell_price - $row->purchase_price)*$row->qty_sold,2,',','.') }}</td>
+                            <td>Rp. {{ number_format(($row->purchase_price* $row->qty_sold),0,',','.') }}</td>
+                            <td>Rp. {{ number_format(($row->sell_price* $row->qty_sold),0,',','.') }}</td>
+                            <td>Rp. {{ number_format(($row->sell_price - $row->purchase_price)*$row->qty_sold,0,',','.') }}</td>
 
                         </tr>
                         @endforeach
