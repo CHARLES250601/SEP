@@ -67,6 +67,8 @@ Route::middleware(['web', 'CekRole:admin'])->group(function (){
 Route::middleware(['web', 'CekRole:customer'])->group(function (){
     Route::get('/Dashboard',[CustomerControler::class,'Home'])->name('index.customer');
     Route::get('/Cart',[CustomerControler::class,'cart'])->name('index.cart');
+    Route::get('/ajaxCart',[CustomerControler::class,'ajaxCart'])->name('index.ajaxCart');
+    Route::get('/ajaxCartDelete',[CustomerControler::class,'ajaxCartDelete'])->name('index.ajaxCartDelete');
     Route::post('/DoAdd/{id}',[CustomerControler::class,'addcart'])->name('Add.cart');
     Route::get('checkout',[CheckoutController::class,'checkout'])->name('index.checkout');
     Route::post('docheckout',[CheckoutController::class,'docheckout'])->name('customer.checkout');

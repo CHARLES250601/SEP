@@ -107,15 +107,15 @@
                                 <div class="product-name">
                                     <a class="link-to-product" href="#">{{$value->boardgames->boardgame_nama}}</a>
                                 </div>
-                                <div class="price-field produtc-price"><p class="price">Rp.{{number_format ($value->boardgames->boardgame_harga_jual,0,'.',',')}}</p></div>
+                                <div class="price-field produtc-price"><p class="price" data-price="{{$value->boardgames->boardgame_harga_jual}}">Rp.{{number_format ($value->boardgames->boardgame_harga_jual,0,'.',',')}}</p></div>
                                 <div class="quantity">
                                     <div class="quantity-input">
-                                        <input type="text" name="product-quatity" value="1" data-max="120" pattern="[0-9]*">
-                                        <a class="btn btn-increase" href="#"></a>
-                                        <a class="btn btn-reduce" href="#"></a>
+                                        <input type="text" name="product-quatity" class="qty" data-id="{{$value->boardgame_id}}" data-max="120" pattern="[0-9]*" value="{{$value->qty}}" >
+                                        <a class="btn btn-increase update" href="#"></a>
+                                        <a class="btn btn-reduce update" href="#"></a>
                                     </div>
                                 </div>
-                                <div class="price-field sub-total"><p class="price">Rp.{{number_format ($value->boardgames->boardgame_harga_jual,0,'.',',')}}</p></div>
+                                <div class="price-field sub-total"><p class="price price_total">Rp.{{number_format ($value->boardgames->boardgame_harga_jual,0,'.',',')}}</p></div>
                                 <div class="delete">
                                     <a href="#" class="btn btn-delete" title="">
                                         <span>Delete from your cart</span>
@@ -128,11 +128,6 @@
 				</div>
 
 				<div class="summary">
-					<div class="order-summary">
-						<h4 class="title-box">Order Summary</h4>
-						<p class="summary-info"><span class="title">Subtotal</span><b class="index">Rp.{{number_format (isset($value->boardgames->boardgame_harga_jual)?$value->boardgames->boardgame_harga_jual:0,0,'.',',')}}</b></p>
-						<p class="summary-info total-info "><span class="title">Total</span><b class="index"></b></p>
-					</div>
 					<div class="checkout-info">
 						<a class="btn btn-checkout" href="{{'checkout'}}">Check out</a>
 						<a class="link-to-shop" href="/">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
@@ -150,4 +145,33 @@
 	<script src="/assets/js/jquery.sticky.js"></script>
 	<script src="/assets/js/functions.js"></script>
 </body>
+
+<script>
+    function numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+    $(document).on('click','.update',function(){
+        var qty = $(this).parent().find('.qty').val()
+        var id = $(this).parent().find('.qty').data("id");
+        var price = $(this).parent().parent().parent().find('.price').data("price");
+        $(this).parent().parent().parent().find('.price_total').text('Rp.'+numberWithCommas(qty*price));
+        $.ajax({
+            url : '{{route("index.ajaxCart")}}',
+            data: {'qty':qty,'id':id},
+            success:function(data,index){
+            }
+        })
+    });
+    $(document).on('click','.delete',function(){
+        var id = $(this).parent().find('.qty').data("id");
+        $.ajax({
+            url : '{{route("index.ajaxCartDelete")}}',
+            data: {'id':id},
+            done:function(data,index){
+            }
+        })
+    });
+
+
+</script>
 </html>

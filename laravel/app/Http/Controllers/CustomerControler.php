@@ -40,4 +40,20 @@ class CustomerControler extends Controller
 
     }
 
+    public function ajaxCart(Request $request)
+    {
+        $cart = Cart::where('user_id',\Auth::user()->id)->where('boardgame_id',$request['id'])->first();
+        $cart->qty = $request['qty'];
+        $cart->save();
+
+        return true;
+    }
+
+    public function ajaxCartDelete(Request $request)
+    {
+        $cart = Cart::where('user_id',\Auth::user()->id)->where('boardgame_id',$request['id'])->delete();
+
+        return true;
+    }
+
 }
