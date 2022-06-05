@@ -33,7 +33,7 @@ class CheckoutController extends Controller
             $detail->save();
             $total += $detail->total;
 
-            $cart = Cart::where('id',$value->id)->delete();
+            $cart = Cart::where('id',$value->id)->delete();//blank the fill
         }
 
         $savedata->grand_total = $total;

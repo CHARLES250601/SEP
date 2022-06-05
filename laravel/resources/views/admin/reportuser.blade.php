@@ -64,6 +64,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <li class="nav-item">
                 <a href="" class="nav-link">
+
                   <i class="nav-icon fas fa-clipboard-list"></i>
                   <p> Boardgame Item </p>
                 </a>
@@ -86,10 +87,29 @@
               </li>
 
               <li class="nav-item">
-                <a href="/report" class="nav-link">
+                <a href="" class="nav-link">
                     <i class="nav-icon fas fa-file"></i>
                     <p> Report </p>
                 </a>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/reportbarang" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report Item</p>
+                      </a>
+                    </li>
+                </ul>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/reportuser" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report User</p>
+                      </a>
+                    </li>
+                </ul>
+
               </li>
 
               <li class="nav-item">
@@ -123,40 +143,35 @@
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title"></h3>
-                  <a href="" button type="text" class="btn btn-success" >List User</a></button>
+                  <a href="" button type="text" class="btn btn-success" >Report User</a></button>
                   <BR>
                   <BR>
                   <div class="card-tools">
                     <div class="input-group input-group-sm" style="width: 150px;"></div>
                   </div>
+
                   <table id="example2" class="table table-bordered table-hover">
+
                     <thead>
                         <th>ID</th>
-                        <th>Username</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Alamat</th>
-                        <th>Role</th>
-                        <th>Action</th>
+                        <th>Grand Total</th>
                     </thead>
 
                     <tbody>
-                        @foreach ($user as $row)
                         <tr>
-                            <td>{{ $row->id }}</td>
-                            <td>{{ $row->username }}</td>
-                            <td>{{ $row->name}}</td>
-                            <td>{{ $row->email }}</td>
-                            <td>{{ $row->alamat }}</td>
-                            <td>{{ $row->role }}</td>
-                            <td>
-                                <a href="{{route('user.delete',[$row->id])}}" class="btn btn-danger">Delete</a>
-                                <a href="{{route('user.update',[$row->id])}}" class="btn btn-warning">Update</a>
-                            </td>
+                            @foreach ($reports as $row)
+                        <tr>
+                            <td>{{ $row->user_id }}</td>
+                            <td>{{ $row->first_name}}</td>
+                            <td>{{ $row->email_address }}</td>
+                            <td>Rp. {{ number_format($row->qty_sold,0,',','.') }}</td>
                         </tr>
                         @endforeach
-                    </tbody>
+                        </tr>
 
+                    </tbody>
                   </table>
                 </div>
               </div>

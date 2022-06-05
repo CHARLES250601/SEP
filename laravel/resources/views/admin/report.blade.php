@@ -86,10 +86,31 @@
               </li>
 
               <li class="nav-item">
-                <a href="" class="nav-link">
+                <a href="report" class="nav-link">
                     <i class="nav-icon fas fa-file"></i>
                     <p> Report </p>
                 </a>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/reportbarang" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report Item</p>
+                      </a>
+                    </li>
+
+                </ul>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/reportuser" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report User</p>
+                      </a>
+                    </li>
+                </ul>
+
+
               </li>
 
               <li class="nav-item">
@@ -123,7 +144,7 @@
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title"></h3>
-
+                  <a href="" button type="text" class="btn btn-success" >Report penjualan</a></button>
                   <BR>
                   <BR>
                   <div class="card-tools">
@@ -138,6 +159,7 @@
                         <th>Address</th>
                         <th>Total</th>
                     </thead>
+
 
                     <tbody>
                         @foreach ($reports as $row)

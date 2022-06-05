@@ -14,7 +14,7 @@ class Order_Detail extends Model
 
     public function boardgames()
     {
-        return $this->hasMany(Boardgame::class,'boardgame_id','id');
+        return $this->hasOne(Boardgame::class,'id','boardgame_id');
     }
 
     public function checkouts()

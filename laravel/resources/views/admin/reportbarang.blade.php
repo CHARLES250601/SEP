@@ -86,10 +86,29 @@
               </li>
 
               <li class="nav-item">
-                <a href="/report" class="nav-link">
+                <a href="" class="nav-link">
                     <i class="nav-icon fas fa-file"></i>
                     <p> Report </p>
                 </a>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/reportbarang" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report Item</p>
+                      </a>
+                    </li>
+                </ul>
+
+                <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="/reportuser" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Report User</p>
+                      </a>
+                    </li>
+                </ul>
+
               </li>
 
               <li class="nav-item">
@@ -123,7 +142,7 @@
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title"></h3>
-                  <a href="" button type="text" class="btn btn-success" >List User</a></button>
+                  <a href="" button type="text" class="btn btn-success" >Report Barang</a></button>
                   <BR>
                   <BR>
                   <div class="card-tools">
@@ -132,31 +151,30 @@
                   <table id="example2" class="table table-bordered table-hover">
                     <thead>
                         <th>ID</th>
-                        <th>Username</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Alamat</th>
-                        <th>Role</th>
-                        <th>Action</th>
+                        <th>Boardgame</th>
+                        <th>Qty</th>
+                        <th>Purchase Price</th>
+                        <th>Sell Price</th>
+                        <th>Total Purchase</th>
+                        <th>Total sales</th>
+                        <th>Laba</th>
                     </thead>
 
                     <tbody>
-                        @foreach ($user as $row)
+                        @foreach ($reports as $row)
                         <tr>
                             <td>{{ $row->id }}</td>
-                            <td>{{ $row->username }}</td>
-                            <td>{{ $row->name}}</td>
-                            <td>{{ $row->email }}</td>
-                            <td>{{ $row->alamat }}</td>
-                            <td>{{ $row->role }}</td>
-                            <td>
-                                <a href="{{route('user.delete',[$row->id])}}" class="btn btn-danger">Delete</a>
-                                <a href="{{route('user.update',[$row->id])}}" class="btn btn-warning">Update</a>
-                            </td>
+                            <td>{{ $row->boardgames->boardgame_nama}}</td>
+                            <td>{{ $row->qty_sold }}</td>
+                            <td>Rp. {{ number_format($row->purchase_price,2,',','.') }}</td>
+                            <td>Rp. {{ number_format($row->sell_price,2,',','.') }}</td>
+                            <td>Rp. {{ number_format(($row->purchase_price* $row->qty_sold),2,',','.') }}</td>
+                            <td>Rp. {{ number_format(($row->sell_price* $row->qty_sold),2,',','.') }}</td>
+                            <td>Rp. {{ number_format(($row->sell_price - $row->purchase_price)*$row->qty_sold,2,',','.') }}</td>
+
                         </tr>
                         @endforeach
                     </tbody>
-
                   </table>
                 </div>
               </div>
